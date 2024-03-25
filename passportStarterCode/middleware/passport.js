@@ -34,10 +34,9 @@ passport.use(
     },
     function(accessToken, refreshToken, profile, done) {
       console.log(profile);
-      // Make a new user with the profile information
-      const user = userController.getUserById(profile.id);
-      console.log(user);
       console.log("test")
+      // Make a new user with the profile information
+      console.log(userController.getUserById(profile.id));
       // if (user === undefined) {
       //   userModel.database.push({
       //     id: profile.id,
