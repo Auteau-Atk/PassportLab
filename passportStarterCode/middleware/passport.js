@@ -33,18 +33,8 @@ passport.use(
       callbackURL: "http://localhost:8000/auth/github/callback"
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log(profile);
-      console.log("test")
       // Make a new user with the profile information
-      console.log(userController.getUserById(profile.id));
-      // if (user === undefined) {
-      //   userModel.database.push({
-      //     id: profile.id,
-      //     name: profile.displayName,
-      //     username: profile.username,
-      //     role: "user"
-      //   })
-      // }
+      user = userController.findOrCreate(profile);
       return done(null, profile);
     }
   )
